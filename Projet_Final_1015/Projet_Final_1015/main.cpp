@@ -1,3 +1,9 @@
-#include "map.h"
-#include "room.h"
-#include "corridor.h"
+#include "game.h"
+
+
+int main() {
+    Game isGame;
+    isGame.startGame();
+
+    return 0;
+}

@@ -2,20 +2,16 @@
 #include <string>
 
 class Room {
-private:
-    int line_;
-    int column_;
-    int roomNumber_;
-
 public:
+
     Room();
-    Room(int line, int column, int roomNumber);
+    Room(const std::string& name, const std::string& description);
 
-    int getLine() const;
-    int getColumn() const;
-    int getRoomNumber() const;
+    const std::string& getName() const;
+    const std::string& getDescription() const;
 
-    void setLine(int l);
-    void setColumn(int c);
-    void setRoomNumber(int n);
+private:
+    std::string name_;
+    std::string description_;
 };
+
