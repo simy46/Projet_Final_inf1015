@@ -6,8 +6,9 @@ void Display::showBanner() {
 }
 
 void Display::showGameState(const Room& room) {
+    std::cout << std::endl;
     std::cout << "You are in " << room.getName() << "." << std::endl;
-    std::cout << room.getDescription() << std::endl;
+    // std::cout << room.getDescription() << std::endl;
     showCommandPrompt();
 }
 
