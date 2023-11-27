@@ -5,6 +5,8 @@ enum class Orientation { X, Y };
 
 class Corridor {
 private:
+
+    int floor_;
     Room* startRoom_;
     Room* endRoom_;
     Orientation orientation_;
@@ -12,8 +14,9 @@ private:
 public:
 
     Corridor();
-    Corridor(Room* start, Room* end, Orientation o);
+    Corridor(int floor, Room* start, Room* end, Orientation o);
 
+    int getFloor() const;
     Room* getStartRoom() const;
     Room* getEndRoom() const;
     Orientation getOrientation() const;
