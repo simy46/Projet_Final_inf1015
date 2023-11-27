@@ -1,28 +1,27 @@
 #pragma once
-
-
+#include <string>
 
 class Room {
-
 private:
-	int line_;
-	int column_;
-	int size_;
-	int floor_;
+    int line_;
+    int column_;
+    int floor_;
+    std::string name_;
+    std::string description_;
 
 public:
+    Room();
+    Room(int l, int c, int e, int s, const std::string& name, const std::string& description);
 
-	Room();
-	Room(int l, int c, int e, int s);
+    int getLine() const;
+    int getColumn() const;
+    int getFloor() const;
+    const std::string& getName() const;
+    const std::string& getDescription() const;
 
-	int getLine() const;
-	int getColumn() const;
-	int getSize() const;
-	int getFloor() const;
-
-	void setLine(int l);
-	void setColumn(int c);
-	void setSize(int s);
-	void setFloor(int f);
-
+    void setLine(int l);
+    void setColumn(int c);
+    void setFloor(int f);
+    void setName(const std::string& name);
+    void setDescription(const std::string& description);
 };

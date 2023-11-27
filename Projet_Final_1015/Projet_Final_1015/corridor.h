@@ -1,17 +1,20 @@
 #pragma once
-#include <vector>
-#include "room.h"
+#include "Room.h"
+
+enum class Orientation { X, Y };
 
 class Corridor {
-
 private:
-
-	std::vector<Room> room; // un corridor peut avoir max 4 piece lié à celui-ci (intersection) // index : [0 = N | 1 = E | 2 = S | 3 = O]
-
-	
+    Room* startRoom_;
+    Room* endRoom_;
+    Orientation orientation_;
 
 public:
 
-	Corridor();
+    Corridor();
+    Corridor(Room* start, Room* end, Orientation o);
 
+    Room* getStartRoom() const;
+    Room* getEndRoom() const;
+    Orientation getOrientation() const;
 };
