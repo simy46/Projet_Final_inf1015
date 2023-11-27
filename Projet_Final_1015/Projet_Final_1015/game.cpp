@@ -11,10 +11,12 @@ Game::Game() : currentRoom_("entrance") {
     rooms_;
     rooms_;
 
-
-    // Initialisation des liens entre les pièces
     roomLinks_["entrance"]["N"] = "livingRoom";
-    // ... Définissez d'autres liens entre les pièces
+
+    roomLinks_; // ajouter d'autre liens
+    roomLinks_;
+    roomLinks_;
+    roomLinks_;
 }
 
 void Game::startGame() {
@@ -39,8 +41,7 @@ void Game::startGame() {
         }
 
         else if (command == "look") {
-            // Logique pour afficher la description de la pièce
-            // ...
+            // DESCRIPTION PIECE 
         }
 
         else {
