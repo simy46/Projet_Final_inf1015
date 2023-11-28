@@ -40,13 +40,52 @@ void Game::createHouse() {
     //roomLinks_["basement"][""] = "";
 }
 
-
-void Game::displayLinks(std::unordered_map<std::string, std::unordered_map<std::string, std::string>> roomLinks) {
-    const Room& currentRoom = rooms_[currentRoom_];
-    const auto& links = roomLinks_[currentRoom_];
-
+std::string Game::getDirectionName(const std::string& direction) {
+    if (direction == "N") {
+        return "North";
+    }
+    else if (direction == "S") {
+        return "South";
+    }
+    else if (direction == "W") {
+        return "West";
+    }
+    else if (direction == "E") {
+        return "East";
+    }
+    else {
+        return "Unknown";
+    }
 }
 
+void Game::displayLinks(const std::unordered_map<std::string, std::string>& links) {
+    for (const auto& direction : { "N", "S", "W", "E" }) {
+        auto it = links.find(direction);
+        if (it != links.end()) {
+            std::cout << it->second << " is to the " << getDirectionName(direction) << " (" << direction << ")" << std::endl;
+        }
+    }
+}
+
+
+void Game::verifyUserCommand(const std::string& command) {
+    if (command.size() == 1) {
+        const auto& links = roomLinks_[currentRoom_];
+        auto it = links.find(command);
+        if (it != links.end()) {
+            currentRoom_ = it->second;
+        }
+        else {
+            std::cout << "Cannot go there." << std::endl;
+        }
+    }
+    else if (command == "look") {
+        std::cout << rooms_[currentRoom_].getDescription() << std::endl;
+    }
+    else {
+        std::cout << "Command not found." << std::endl;
+    }
+}
 
 void Game::startGame() {
     Display::showBanner();
@@ -55,55 +94,14 @@ void Game::startGame() {
         const Room& currentRoom = rooms_[currentRoom_];
         Display::showGameState(currentRoom);
 
-        const auto& dir = roomLinks_[currentRoom_];
-
-        auto itN = dir.find("N");
-        if (itN != dir.end()) {
-            std::cout << std::endl;
-            std::cout << itN->second << " is to the North (N)" << std::endl;
-        }
-
-        auto itS = dir.find("S");
-        if (itS != dir.end()) {
-            std::cout << std::endl;
-            std::cout << itS->second << " is to the South (S)" << std::endl;
-        }
-
-        auto itW = dir.find("W");
-        if (itW != dir.end()) {
-            std::cout << std::endl;
-            std::cout << itW->second << " is to the West (W)" << std::endl;
-        }
-
-        auto itE = dir.find("E");
-        if (itE != dir.end()) {
-            std::cout << std::endl;
-            std::cout << itE->second << " is to the East (E)" << std::endl;
-            
-        }
+        const auto& links = roomLinks_[currentRoom_];
+        displayLinks(links);
 
         Display::showCommandPrompt();
         std::string command;
         std::cin >> command;
 
-        if (command.size() == 1) {
-            const auto& links = roomLinks_[currentRoom_];
-            auto it = links.find(command);
-            if (it != links.end()) {
-                currentRoom_ = it->second;
-            }
-            else {
-                std::cout << "Cannot go there." << std::endl;
-            }
-        }
-
-        else if (command == "look") {
-            // DESCRIPTION PIECE 
-            std::cout << rooms_[currentRoom_].getDescription() << std::endl;
-        }
-
-        else {
-            std::cout << "Command not found." << std::endl;
-        }
+        verifyUserCommand(command);
     }
 }
+
