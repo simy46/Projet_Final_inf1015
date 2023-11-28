@@ -19,11 +19,11 @@ void Display::showCommandPrompt() {
     std::cout << "$ ";
 }
 
-void Display::displayLinks(const std::unordered_map<std::string, std::string>& links) {
+void Display::displayLinks(const std::unordered_map<std::string, std::string>& links, House& house) {
     for (const auto& direction : { "N", "S", "W", "E" }) {
         auto it = links.find(direction);
         if (it != links.end()) {
-            std::cout << it->second << " is to the " << getDirectionName(direction) << " (" << direction << ")" << std::endl;
+            std::cout << house.getRoom(it->second).getName() << " is to the " << getDirectionName(direction) << " (" << direction << ")" << std::endl;
         }
     }
 }

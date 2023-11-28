@@ -34,7 +34,7 @@ void Game::startGame() {
         Display::showGameState(currentRoom);
 
         const auto& links = house_.getRoomLinks(currentRoom_);
-        Display::displayLinks(links);
+        Display::displayLinks(links, house_);
 
         Display::showCommandPrompt();
         std::string command;
