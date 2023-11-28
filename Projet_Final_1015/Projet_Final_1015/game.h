@@ -8,8 +8,11 @@ public:
 
     void startGame();
 
+    
+
 private:
     void createHouse();
+    void displayLinks(std::unordered_map<std::string, std::unordered_map<std::string, std::string>> roomLinks);
     std::unordered_map<std::string, Room> rooms_;
     std::unordered_map<std::string, std::unordered_map<std::string, std::string>> roomLinks_;
     std::string currentRoom_;

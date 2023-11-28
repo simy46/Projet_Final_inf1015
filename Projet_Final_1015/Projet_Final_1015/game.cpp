@@ -1,13 +1,15 @@
+#include <iostream>
 #include "game.h"
 #include "display.h"
-#include <iostream>
+
 
 Game::Game() : currentRoom_("entrance") {
     createHouse();
 }
 
+
 void Game::createHouse() {
-        rooms_["entrance"] = Room("The Entrance", "Welcome my dear friend. Please take of your shoes so we can keep the house cleeeeeeaaaann !");
+    rooms_["entrance"] = Room("The Entrance", "Welcome my dear friend. Please take of your shoes so we can keep the house cleeeeeeaaaann !");
     rooms_["livingRoom"] = Room("The LivingRoom", "You can always sit, relax and watch the tv.");
     rooms_["kitchen"] = Room("The Kitchen", "There is a lot of food... Don't you dare take some !");
     rooms_["basement"] = Room("The Basement", "This is a good place to chill -- or a good place to hide..?");
@@ -19,7 +21,6 @@ void Game::createHouse() {
     // lien entrance //
     roomLinks_["entrance"]["N"] = "livingRoom";
     roomLinks_["entrance"]["E"] = "basement";
-
 
     // liens livingRoom //
     roomLinks_["livingRoom"]["S"] = "entrance";
@@ -39,6 +40,14 @@ void Game::createHouse() {
     //roomLinks_["basement"][""] = "";
 }
 
+
+void Game::displayLinks(std::unordered_map<std::string, std::unordered_map<std::string, std::string>> roomLinks) {
+    const Room& currentRoom = rooms_[currentRoom_];
+    const auto& links = roomLinks_[currentRoom_];
+
+}
+
+
 void Game::startGame() {
     Display::showBanner();
 
@@ -46,6 +55,34 @@ void Game::startGame() {
         const Room& currentRoom = rooms_[currentRoom_];
         Display::showGameState(currentRoom);
 
+        const auto& dir = roomLinks_[currentRoom_];
+
+        auto itN = dir.find("N");
+        if (itN != dir.end()) {
+            std::cout << std::endl;
+            std::cout << itN->second << " is to the North (N)" << std::endl;
+        }
+
+        auto itS = dir.find("S");
+        if (itS != dir.end()) {
+            std::cout << std::endl;
+            std::cout << itS->second << " is to the South (S)" << std::endl;
+        }
+
+        auto itW = dir.find("W");
+        if (itW != dir.end()) {
+            std::cout << std::endl;
+            std::cout << itW->second << " is to the West (W)" << std::endl;
+        }
+
+        auto itE = dir.find("E");
+        if (itE != dir.end()) {
+            std::cout << std::endl;
+            std::cout << itE->second << " is to the East (E)" << std::endl;
+            
+        }
+
+        Display::showCommandPrompt();
         std::string command;
         std::cin >> command;
 
