@@ -56,7 +56,7 @@ void Game::startGame() {
                 currentRoom_ = it->second;
             }
             else {
-                std::cout << "Direction non valide." << std::endl;
+                std::cout << "Cannot go there." << std::endl;
             }
         }
 
@@ -66,7 +66,7 @@ void Game::startGame() {
         }
 
         else {
-            std::cout << "Commande non reconnue." << std::endl;
+            std::cout << "Command not found." << std::endl;
         }
     }
 }
