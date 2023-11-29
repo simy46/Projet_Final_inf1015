@@ -15,30 +15,30 @@ void House::createHouse() {
     rooms_["gameRoom"] = Room("The Game Room", "Challenge accepted! Feel free to play games and unwind.");
     rooms_["library"] = Room("The Library", "Shhh... The books might be old, but they have great stories to tell.");
 
-    // Lien "entrance"
+    // Lien entrance
     roomLinks_["entrance"]["N"] = "livingRoom";
     roomLinks_["entrance"]["E"] = "basement";
 
-    // Lien "livingRoom"
+    // Lien livingRoom
     roomLinks_["livingRoom"]["S"] = "entrance";
     roomLinks_["livingRoom"]["W"] = "kitchen";
     roomLinks_["livingRoom"]["E"] = "gameRoom";
 
-    // Lien "kitchen"
+    // Lien kitchen
     roomLinks_["kitchen"]["E"] = "livingRoom";
-    roomLinks_["kitchen"]["N"] = "library";  // Nouveau lien vers la bibliothèque
+    roomLinks_["kitchen"]["N"] = "library";
 
-    // Lien "basement"
+    // Lien basement
     roomLinks_["basement"]["W"] = "entrance";
-    roomLinks_["basement"]["N"] = "bedroom";  // Nouveau lien vers la chambre
+    roomLinks_["basement"]["N"] = "bedroom";
 
-    // Lien "bedroom"
+    // Lien bedroom
     roomLinks_["bedroom"]["S"] = "basement";
 
-    // Lien "gameRoom"
+    // Lien gameRoom
     roomLinks_["gameRoom"]["W"] = "livingRoom";
 
-    // Lien "library"
+    // Lien library
     roomLinks_["library"]["S"] = "kitchen";
 }
 

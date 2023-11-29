@@ -3,9 +3,7 @@
 #include "display.h"
 
 
-Game::Game() : currentRoom_("entrance") {
-    house_;
-}
+Game::Game() : currentRoom_("entrance"), house_(House()) {}
 
 void Game::verifyCommand(const std::string& command) {
     if (command.size() == 1) {
