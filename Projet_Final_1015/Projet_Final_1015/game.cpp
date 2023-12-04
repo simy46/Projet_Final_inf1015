@@ -11,6 +11,8 @@ void Game::verifyCommand(const std::string& command) {
         auto it = links.find(command);
         if (it != links.end()) {
             currentRoom_ = it->second;
+            std::cout << "Going " << Display::getDirectionName(command) << "..." << std::endl;
+
         }
         else {
             std::cout << "Cannot go there." << std::endl;

@@ -4,7 +4,7 @@
 class Display {
 private:
 
-    static std::string getDirectionName(const std::string& direction);
+    
 
 public:
     static void showBanner();
@@ -14,5 +14,7 @@ public:
     static void showGameState(const Room& room);
 
     static void showCommandPrompt();
+
+    static std::string getDirectionName(const std::string& direction);
 };
 
