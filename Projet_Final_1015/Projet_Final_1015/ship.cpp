@@ -22,17 +22,20 @@ void Ship::createShip() {
     cabinLinks_["deck"]["E"] = "brig";
     cabinLinks_["deck"]["S"] = "galley";
 
+    // Lien crowsNest
+    cabinLinks_["crowsNest"]["D"] = "deck";
+
     // Lien captain's quarters
     cabinLinks_["captainsQuarters"]["S"] = "deck";
+
+    // Lien brig
+    cabinLinks_["brig"]["W"] = "deck";
+    cabinLinks_["brig"]["N"] = "crewQuarters";
 
     // Lien galley
     cabinLinks_["galley"]["N"] = "deck";
     cabinLinks_["galley"]["W"] = "bathroom";
     cabinLinks_["galley"]["E"] = "gameCabin";
-
-    // Lien brig
-    cabinLinks_["brig"]["W"] = "deck";
-    cabinLinks_["brig"]["N"] = "crewQuarters";
 
     // Lien crew quarters
     cabinLinks_["crewQuarters"]["S"] = "brig";
@@ -41,7 +44,10 @@ void Ship::createShip() {
     cabinLinks_["gameCabin"]["W"] = "galley";
 
 
-    cabinLinks_["crowsNest"]["D"] = "deck";
+    // Lien bathroom
+    cabinLinks_["bathroom"]["E"] = "galley";
+
+
 }
 
 
