@@ -15,7 +15,7 @@ ooO--`o'--Ooo--8---(_)--Ooo----ooO--`o'--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo----ooO-
 )" << std::endl;
 }
 
-void Display::showGameState(const Room& room) {
+void Display::showGameState(const Cabin& room) {
     std::cout << std::endl;
     std::cout << "-- " << room.getName() << " --" << std::endl;
     std::cout << room.getDescription() << std::endl;
@@ -29,26 +29,29 @@ void Display::showCommandPrompt() {
 }
 
 void Display::displayLinks(const std::unordered_map<std::string, std::string>& links, Boat& house) {
-    for (const auto& direction : { "N", "S", "W", "E" }) {
+    for (const auto& direction : { "N", "S", "W", "E", "U"}) {
         auto it = links.find(direction);
         if (it != links.end()) {
-            std::cout << house.getRoom(it->second).getName() << " is to the " << getDirectionName(direction) << " (" << direction << ")" << std::endl;
+            std::cout << house.getCabin(it->second).getName() << " is " << getDirectionName(direction) << " (" << direction << ")" << std::endl;
         }
     }
 }
 
 std::string Display::getDirectionName(const std::string& direction) {
     if (direction == "N") {
-        return "North";
+        return "to the North";
     }
     else if (direction == "S") {
-        return "South";
+        return "to the South";
     }
     else if (direction == "W") {
-        return "West";
+        return "to the West";
     }
     else if (direction == "E") {
-        return "East";
+        return "to the East";
+    }
+    else if (direction == "U") {
+        return "Up";
     }
     else {
         return "Unknown";

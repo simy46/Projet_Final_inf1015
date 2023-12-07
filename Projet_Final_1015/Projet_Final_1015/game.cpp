@@ -3,14 +3,14 @@
 #include "display.h"
 
 
-Game::Game() : currentRoom_("entrance"), boat_(Boat()) {}
+Game::Game() : currentCabin_("deck"), boat_(Boat()) {}
 
 void Game::verifyCommand(const std::string& command) {
     if (command.size() == 1) {
-        const auto& links = boat_.getRoomLinks(currentRoom_);
+        const auto& links = boat_.getCabinLinks(currentCabin_);
         auto it = links.find(command);
         if (it != links.end()) {
-            currentRoom_ = it->second;
+            currentCabin_ = it->second;
             std::cout << "Going " << Display::getDirectionName(command) << "..." << std::endl;
 
         }
@@ -19,7 +19,7 @@ void Game::verifyCommand(const std::string& command) {
         }
     }
     else if (command == "look") {
-        std::cout << boat_.getRoom(currentRoom_).getDescription() << std::endl;
+        std::cout << boat_.getCabin(currentCabin_).getDescription() << std::endl;
     }
     else {
         std::cout << "Command not found." << std::endl;
@@ -30,10 +30,10 @@ void Game::startGame() {
     Display::showBanner();
 
     while (true) {
-        const Room& currentRoom = boat_.getRoom(currentRoom_);
-        Display::showGameState(currentRoom);
+        const Cabin& currentCabin = boat_.getCabin(currentCabin_);
+        Display::showGameState(currentCabin);
 
-        const auto& links = boat_.getRoomLinks(currentRoom_);
+        const auto& links = boat_.getCabinLinks(currentCabin_);
         Display::displayLinks(links, boat_);
 
         Display::showCommandPrompt();

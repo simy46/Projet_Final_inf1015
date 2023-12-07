@@ -1,12 +1,12 @@
 #pragma once
 #include <unordered_map>
-#include "room.h"
+#include "cabin.h"
 
 class Boat {
 
 private:
-	std::unordered_map<std::string, Room> rooms_;
-	std::unordered_map<std::string, std::unordered_map<std::string, std::string>> roomLinks_;
+	std::unordered_map<std::string, Cabin> cabins_;
+	std::unordered_map<std::string, std::unordered_map<std::string, std::string>> cabinLinks_;
 
 
 public:
@@ -15,9 +15,9 @@ public:
 
 	void createBoat();
 
-	Room& getRoom(std::string currentRoom);
+	Cabin& getCabin(std::string currentCabin);
 
-	std::unordered_map<std::string, std::string>& getRoomLinks(std::string currentRoom);
+	std::unordered_map<std::string, std::string>& getCabinLinks(std::string currentCabin);
 
 
 };

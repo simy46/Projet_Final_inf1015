@@ -11,7 +11,7 @@ public:
 
     static void displayLinks(const std::unordered_map<std::string, std::string>& links¸, Boat& house);
 
-    static void showGameState(const Room& room);
+    static void showGameState(const Cabin& room);
 
     static void showCommandPrompt();
 

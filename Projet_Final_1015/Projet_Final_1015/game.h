@@ -15,7 +15,7 @@ private:
 
     Boat boat_;
 
-    std::unordered_map<std::string, Room> rooms_;
-    std::unordered_map<std::string, std::unordered_map<std::string, std::string>> roomLinks_;
-    std::string currentRoom_;
+    std::unordered_map<std::string, Cabin> cabins_;
+    std::unordered_map<std::string, std::unordered_map<std::string, std::string>> cabinlinks_;
+    std::string currentCabin_;
 };

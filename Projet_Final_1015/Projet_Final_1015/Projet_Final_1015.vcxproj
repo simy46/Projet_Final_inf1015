@@ -130,14 +130,14 @@
     <ClInclude Include="display.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="boat.h" />
-    <ClInclude Include="room.h" />
+    <ClInclude Include="cabin.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="display.cpp" />
     <ClCompile Include="boat.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="room.cpp" />
+    <ClCompile Include="cabin.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

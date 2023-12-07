@@ -6,46 +6,46 @@ Boat::Boat() {
 };
 
 void Boat::createBoat() {
-    rooms_["entrance"] = Room("The Entrance", "Welcome my dear friend. Please take off your shoes so we can keep the house cleeeeeeaaaann !");
-    rooms_["livingRoom"] = Room("The Living Room", "You can always sit, relax, and watch the TV.");
-    rooms_["kitchen"] = Room("The Kitchen", "There is a lot of food... Don't you dare take some!");
-    rooms_["basement"] = Room("The Basement", "This is a good place to chill -- or a good place to hide..?");
-    rooms_["bedroom"] = Room("The Bedroom", "The coziest place in the house. Sweet dreams await you.");
-    rooms_["bathroom"] = Room("The Bathroom", "A place for profound thoughts and questionable singing.");
-    rooms_["gameRoom"] = Room("The Game Room", "Challenge accepted! Feel free to play games and unwind.");
-    rooms_["library"] = Room("The Library", "Shhh... The books might be old, but they have great stories to tell.");
+    cabins_["deck"] = Cabin("The Deck", "Welcome aboard, me heartie! This be the startin' point of yer grand adventure.");
+    cabins_["captainsQuarters"] = Cabin("Captain's Quarters", "This be where the captain plots his course and guards his precious treasures.");
+    cabins_["galley"] = Cabin("The Galley", "Aye, the galley be stocked with provisions. No pilferin' the rum!");
+    cabins_["brig"] = Cabin("The Brig", "A dark and dank cell – beware, for some secrets be hidden here.");
+    cabins_["crewQuarters"] = Cabin("Crew Quarters", "The restin' place for the hardworking crew. Shh... they be sleepin'.");
+    cabins_["bathroom"] = Cabin("The Head", "A place for washin' yer face and contemplatin' life's mysteries.");
+    cabins_["gameCabin"] = Cabin("The Game Cabin", "Challenge yer shipmates to a game of cards or dice.");
+    cabins_["crowsNest"] = Cabin("The Crow's Nest", "A high perch atop the mast where a pirate's keen eye scans the horizon.");
 
-    // Lien entrance
-    roomLinks_["entrance"]["N"] = "livingRoom";
-    roomLinks_["entrance"]["E"] = "basement";
 
-    // Lien livingRoom
-    roomLinks_["livingRoom"]["S"] = "entrance";
-    roomLinks_["livingRoom"]["W"] = "kitchen";
-    roomLinks_["livingRoom"]["E"] = "gameRoom";
+    // Lien deck
+    cabinLinks_["deck"]["U"] = "crowsNest";
+    cabinLinks_["deck"]["N"] = "captainsQuarters";
+    cabinLinks_["deck"]["E"] = "brig";
+    cabinLinks_["deck"]["S"] = "galley";
 
-    // Lien kitchen
-    roomLinks_["kitchen"]["E"] = "livingRoom";
-    roomLinks_["kitchen"]["N"] = "library";
+    // Lien captain's quarters
+    cabinLinks_["captainsQuarters"]["S"] = "deck";
 
-    // Lien basement
-    roomLinks_["basement"]["W"] = "entrance";
-    roomLinks_["basement"]["N"] = "bedroom";
+    // Lien galley
+    cabinLinks_["galley"]["N"] = "deck";
+    cabinLinks_["galley"]["W"] = "bathroom";
+    cabinLinks_["galley"]["E"] = "gameCabin";
 
-    // Lien bedroom
-    roomLinks_["bedroom"]["S"] = "basement";
+    // Lien brig
+    cabinLinks_["brig"]["W"] = "deck";
+    cabinLinks_["brig"]["N"] = "crewQuarters";
 
-    // Lien gameRoom
-    roomLinks_["gameRoom"]["W"] = "livingRoom";
+    // Lien crew quarters
+    cabinLinks_["crewQuarters"]["S"] = "brig";
 
-    // Lien library
-    roomLinks_["library"]["S"] = "kitchen";
+    // Lien game room
+    cabinLinks_["gameCabin"]["W"] = "galley";
 }
 
-Room& Boat::getRoom(std::string currentRoom) {
-    return rooms_[currentRoom];
+
+Cabin& Boat::getCabin(std::string currentCabin) {
+    return cabins_[currentCabin];
 }
 
-std::unordered_map<std::string, std::string>& Boat::getRoomLinks(std::string currentRoom) {
-    return roomLinks_[currentRoom];
+std::unordered_map<std::string, std::string>& Boat::getCabinLinks(std::string currentCabin) {
+    return cabinLinks_[currentCabin];
 }
