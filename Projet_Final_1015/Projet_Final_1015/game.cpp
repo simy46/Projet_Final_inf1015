@@ -23,6 +23,9 @@ void Game::verifyCommand(const std::string& command) {
         std::cout << currentCabin.getName() << std::endl;
         std::cout << currentCabin.getDescription() << std::endl;
     }
+    else if (command == "command") {
+        Display::displayCommand();
+    }
     else {
         std::cout << "Command not found." << std::endl;
     }

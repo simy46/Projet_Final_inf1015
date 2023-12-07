@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <iomanip>
 #include <unordered_map>
 #include "display.h"
 
@@ -46,12 +47,24 @@ void Display::displayLinks(const std::unordered_map<std::string, std::string>& l
 
 
 void Display::displayCommand() {
-    std::cout << "-- These are the command that you can use --" << std::endl;
-    for (const auto& direction : { "N", "S", "W", "E", "U", "D" }) {
-        std::cout << direction << " : " << getDirectionName(direction) << std::endl;
-    }
+    const int boxWidth = 40;
 
-    // ajouter les start, exit, look, etc //
+    std::cout << std::setw(boxWidth) << std::setfill('-') << "" << std::endl;
+    std::cout << std::setfill(' ');
+
+    std::cout << std::setw(boxWidth) << std::left << "These are the commands that you can use" << std::endl;
+
+    std::cout << std::setw(boxWidth) << std::setfill('-') << "" << std::endl;
+    std::cout << std::setfill(' ');
+
+    for (const auto& direction : { "N", "S", "W", "E", "U", "D" }) {
+        std::cout << std::setw(boxWidth / 2) << direction << " : " << getDirectionName(direction) << std::endl;
+    }
+    std::cout << std::endl;
+    std::cout << std::setw(boxWidth / 2) << "To get command list : command" << std::endl;
+
+    std::cout << std::setw(boxWidth) << std::setfill('-') << "" << std::endl;
+    std::cout << std::setfill(' ');
 }
 
 
