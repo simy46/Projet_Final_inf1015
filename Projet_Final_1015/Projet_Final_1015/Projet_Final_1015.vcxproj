@@ -129,11 +129,13 @@
   <ItemGroup>
     <ClInclude Include="display.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="ship.h" />
     <ClInclude Include="cabin.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="display.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="ship.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="game.cpp" />
