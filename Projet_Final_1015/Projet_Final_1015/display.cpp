@@ -3,7 +3,7 @@
 #include "display.h"
 
 
-// formatage string : https://patorjk.com/software/taag/#p=display&h=1&v=3&f=Cyberlarge&t=to%20the%20game // 
+// formatage string : https://www.asciiart.eu/vehicles/boats// // 
 void Display::showBanner() { // choisir format //
     std::cout << R"(
 
