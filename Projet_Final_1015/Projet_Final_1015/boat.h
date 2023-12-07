@@ -2,7 +2,7 @@
 #include <unordered_map>
 #include "room.h"
 
-class House {
+class Boat {
 
 private:
 	std::unordered_map<std::string, Room> rooms_;
@@ -11,9 +11,9 @@ private:
 
 public:
 
-	House();
+	Boat();
 
-	void createHouse();
+	void createBoat();
 
 	Room& getRoom(std::string currentRoom);
 

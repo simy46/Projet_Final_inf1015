@@ -1,5 +1,5 @@
 #pragma once
-#include "house.h"
+#include "boat.h"
 
 class Game {
 public:
@@ -13,7 +13,7 @@ private:
 
     void verifyCommand(const std::string& command);
 
-    House house_;
+    Boat boat_;
 
     std::unordered_map<std::string, Room> rooms_;
     std::unordered_map<std::string, std::unordered_map<std::string, std::string>> roomLinks_;

@@ -1,11 +1,11 @@
-#include "house.h"
+#include "boat.h"
 
 
-House::House() {
-    createHouse();
+Boat::Boat() {
+    createBoat();
 };
 
-void House::createHouse() {
+void Boat::createBoat() {
     rooms_["entrance"] = Room("The Entrance", "Welcome my dear friend. Please take off your shoes so we can keep the house cleeeeeeaaaann !");
     rooms_["livingRoom"] = Room("The Living Room", "You can always sit, relax, and watch the TV.");
     rooms_["kitchen"] = Room("The Kitchen", "There is a lot of food... Don't you dare take some!");
@@ -42,10 +42,10 @@ void House::createHouse() {
     roomLinks_["library"]["S"] = "kitchen";
 }
 
-Room& House::getRoom(std::string currentRoom) {
+Room& Boat::getRoom(std::string currentRoom) {
     return rooms_[currentRoom];
 }
 
-std::unordered_map<std::string, std::string>& House::getRoomLinks(std::string currentRoom) {
+std::unordered_map<std::string, std::string>& Boat::getRoomLinks(std::string currentRoom) {
     return roomLinks_[currentRoom];
 }

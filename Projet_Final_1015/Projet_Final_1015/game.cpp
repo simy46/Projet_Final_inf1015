@@ -3,11 +3,11 @@
 #include "display.h"
 
 
-Game::Game() : currentRoom_("entrance"), house_(House()) {}
+Game::Game() : currentRoom_("entrance"), boat_(Boat()) {}
 
 void Game::verifyCommand(const std::string& command) {
     if (command.size() == 1) {
-        const auto& links = house_.getRoomLinks(currentRoom_);
+        const auto& links = boat_.getRoomLinks(currentRoom_);
         auto it = links.find(command);
         if (it != links.end()) {
             currentRoom_ = it->second;
@@ -19,7 +19,7 @@ void Game::verifyCommand(const std::string& command) {
         }
     }
     else if (command == "look") {
-        std::cout << house_.getRoom(currentRoom_).getDescription() << std::endl;
+        std::cout << boat_.getRoom(currentRoom_).getDescription() << std::endl;
     }
     else {
         std::cout << "Command not found." << std::endl;
@@ -30,11 +30,11 @@ void Game::startGame() {
     Display::showBanner();
 
     while (true) {
-        const Room& currentRoom = house_.getRoom(currentRoom_);
+        const Room& currentRoom = boat_.getRoom(currentRoom_);
         Display::showGameState(currentRoom);
 
-        const auto& links = house_.getRoomLinks(currentRoom_);
-        Display::displayLinks(links, house_);
+        const auto& links = boat_.getRoomLinks(currentRoom_);
+        Display::displayLinks(links, boat_);
 
         Display::showCommandPrompt();
         std::string command;
