@@ -14,7 +14,6 @@ public:
 	Ship();
 
 	void createShip();
-
 	Cabin& getCabin(std::string currentCabin);
 
 	std::unordered_map<std::string, std::string>& getCabinLinks(std::string currentCabin);

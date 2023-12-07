@@ -45,6 +45,7 @@ void Ship::createShip() {
 }
 
 
+
 Cabin& Ship::getCabin(std::string currentCabin) {
     return cabins_[currentCabin];
 }

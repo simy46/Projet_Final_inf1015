@@ -1,4 +1,5 @@
 ﻿  display.cpp
+  Object.cpp
   ship.cpp
   main.cpp
   game.cpp
