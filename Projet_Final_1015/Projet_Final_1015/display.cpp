@@ -7,11 +7,13 @@
 void Display::showBanner() { // choisir format //
     std::cout << R"(
 
-               #   ___                            ___           |"|                   
-    ()_()      #  <_*_>            ()_()         .|||.         _|_|_           __MMM__
-    (o o)      #  (o o)            (o o)         (o o)         (o o)            (o o)  
-ooO--`o'--Ooo--8---(_)--Ooo----ooO--`o'--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo----ooO--(_)--
-                                                                                             
+                    v ~.      v
+          v           /|
+                     / |          v
+              v     /__|__
+                  \--------/
+~~~~~~~~~~~~~~~~~~~`~~~~~~'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                The pirate ship                                  
 )" << std::endl;
 }
 
