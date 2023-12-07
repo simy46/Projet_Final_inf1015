@@ -46,7 +46,12 @@ void Display::displayLinks(const std::unordered_map<std::string, std::string>& l
 
 
 void Display::displayCommand() {
+    std::cout << "-- These are the command that you can use --" << std::endl;
+    for (const auto& direction : { "N", "S", "W", "E", "U", "D" }) {
+        std::cout << direction << " : " << getDirectionName(direction) << std::endl;
+    }
 
+    // ajouter les start, exit, look, etc //
 }
 
 

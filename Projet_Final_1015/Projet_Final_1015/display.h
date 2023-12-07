@@ -9,7 +9,7 @@ private:
 public:
     static void showBanner();
 
-    void displayCommand();
+    static void displayCommand();
 
     static void displayLinks(const std::unordered_map<std::string, std::string>& links¸, Ship& ship);
 

@@ -20,6 +20,7 @@ void Game::verifyCommand(const std::string& command) {
         }
     }
     else if (command == "look") {
+        std::cout << currentCabin.getName() << std::endl;
         std::cout << currentCabin.getDescription() << std::endl;
     }
     else {
@@ -29,6 +30,7 @@ void Game::verifyCommand(const std::string& command) {
 
 void Game::startGame() {
     Display::showBanner();
+    Display::displayCommand();
 
     while (true) { // on va changer le while true pour un while (!exit) ou meme while (start) pour livrable 2 //
         Display::showGameState(ship_.getCabin(currentCabin_));
