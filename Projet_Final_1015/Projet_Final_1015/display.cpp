@@ -61,7 +61,7 @@ void Display::displayCommand() {
         std::cout << std::setw(boxWidth / 2) << direction << " : " << getDirectionName(direction) << std::endl;
     }
     std::cout << std::endl;
-    std::cout << std::setw(boxWidth / 2) << "To get command list : command" << std::endl;
+    std::cout << std::setw(boxWidth / 2) << "C" << " : get command list" << std::endl;
 
     std::cout << std::setw(boxWidth) << std::setfill('-') << "" << std::endl;
     std::cout << std::setfill(' ');

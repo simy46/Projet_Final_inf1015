@@ -15,6 +15,9 @@ void Game::verifyCommand(const std::string& command) {
             currentCabin_ = it->second;
             std::cout << "Going " << Display::getDirectionName(command) << "..." << std::endl;
         }
+        else if (command == "C") {
+            Display::displayCommand();
+        }
         else {
             std::cout << "Cannot go there." << std::endl;
         }
@@ -22,9 +25,6 @@ void Game::verifyCommand(const std::string& command) {
     else if (command == "look") {
         std::cout << currentCabin.getName() << std::endl;
         std::cout << currentCabin.getDescription() << std::endl;
-    }
-    else if (command == "command") {
-        Display::displayCommand();
     }
     else {
         std::cout << "Command not found." << std::endl;
