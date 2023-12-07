@@ -24,7 +24,7 @@
     <ClInclude Include="display.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="boat.h">
+    <ClInclude Include="ship.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClCompile Include="display.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="boat.cpp">
+    <ClCompile Include="ship.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

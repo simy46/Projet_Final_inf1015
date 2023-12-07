@@ -30,11 +30,11 @@ void Display::showCommandPrompt() {
     std::cout << "$ ";
 }
 
-void Display::displayLinks(const std::unordered_map<std::string, std::string>& links, Boat& house) {
-    for (const auto& direction : { "N", "S", "W", "E", "U"}) {
+void Display::displayLinks(const std::unordered_map<std::string, std::string>& links, Ship& ship) {
+    for (const auto& direction : { "N", "S", "W", "E", "U", "D"}) {
         auto it = links.find(direction);
         if (it != links.end()) {
-            std::cout << house.getCabin(it->second).getName() << " is " << getDirectionName(direction) << " (" << direction << ")" << std::endl;
+            std::cout << ship.getCabin(it->second).getName() << " is " << getDirectionName(direction) << " (" << direction << ")" << std::endl;
         }
     }
 }
@@ -54,6 +54,9 @@ std::string Display::getDirectionName(const std::string& direction) {
     }
     else if (direction == "U") {
         return "Up";
+    }
+    else if (direction == "D") {
+        return "Down";
     }
     else {
         return "Unknown";

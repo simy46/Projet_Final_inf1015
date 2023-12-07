@@ -1,5 +1,5 @@
 #pragma once
-#include "boat.h"
+#include "ship.h"
 
 class Display {
 private:
@@ -9,7 +9,7 @@ private:
 public:
     static void showBanner();
 
-    static void displayLinks(const std::unordered_map<std::string, std::string>& links¸, Boat& house);
+    static void displayLinks(const std::unordered_map<std::string, std::string>& links¸, Ship& ship);
 
     static void showGameState(const Cabin& room);
 

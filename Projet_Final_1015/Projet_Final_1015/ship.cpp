@@ -1,11 +1,11 @@
-#include "boat.h"
+#include "ship.h"
 
 
-Boat::Boat() {
-    createBoat();
+Ship::Ship() {
+    createShip();
 };
 
-void Boat::createBoat() {
+void Ship::createShip() {
     cabins_["deck"] = Cabin("The Deck", "Welcome aboard, me heartie! This be the startin' point of yer grand adventure.");
     cabins_["captainsQuarters"] = Cabin("Captain's Quarters", "This be where the captain plots his course and guards his precious treasures.");
     cabins_["galley"] = Cabin("The Galley", "Aye, the galley be stocked with provisions. No pilferin' the rum!");
@@ -39,13 +39,16 @@ void Boat::createBoat() {
 
     // Lien game room
     cabinLinks_["gameCabin"]["W"] = "galley";
+
+
+    cabinLinks_["crowsNest"]["D"] = "deck";
 }
 
 
-Cabin& Boat::getCabin(std::string currentCabin) {
+Cabin& Ship::getCabin(std::string currentCabin) {
     return cabins_[currentCabin];
 }
 
-std::unordered_map<std::string, std::string>& Boat::getCabinLinks(std::string currentCabin) {
+std::unordered_map<std::string, std::string>& Ship::getCabinLinks(std::string currentCabin) {
     return cabinLinks_[currentCabin];
 }
