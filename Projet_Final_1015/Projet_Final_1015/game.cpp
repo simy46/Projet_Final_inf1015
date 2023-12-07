@@ -49,3 +49,20 @@ void Game::startGame() {
     }
 }
 
+void Game::interactWithObject(const Cabin& cabin, const std::string& objectKeyword) {
+    const Object* foundObject = cabin.findObject(objectKeyword);
+    if (foundObject) {
+        std::cout << "You interact with " << foundObject->getName() << ": " << foundObject->getDescription() << std::endl;
+
+        // Handle linking to other cabins based on your logic
+        const auto& linkedObjects = ship_.getCabinLinks(cabin.getName());
+        auto linkedObjectIt = linkedObjects.find(foundObject->getName());
+        if (linkedObjectIt != linkedObjects.end()) {
+            currentCabin_ = linkedObjectIt->second;
+            std::cout << "You discover a new area: " << currentCabin_ << std::endl;
+        }
+    }
+    else {
+        std::cout << "Object not found." << std::endl;
+    }
+}

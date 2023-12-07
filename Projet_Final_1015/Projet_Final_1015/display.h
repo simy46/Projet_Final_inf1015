@@ -16,7 +16,7 @@ public:
     static void showGameState(const Cabin& room);
 
     static void showCommandPrompt();
-
+    static void displayObjects(const Cabin& cabin);
     static std::string getDirectionName(const std::string& direction);
 };
 

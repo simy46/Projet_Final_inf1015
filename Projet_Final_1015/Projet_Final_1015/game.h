@@ -6,6 +6,7 @@ public:
     Game();
 
     void startGame();
+    void interactWithObject(const Cabin& cabin, const std::string& objectKeyword);
 
     
 

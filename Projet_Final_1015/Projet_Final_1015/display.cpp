@@ -45,6 +45,16 @@ void Display::displayLinks(const std::unordered_map<std::string, std::string>& l
     }
 }
 
+void Display::displayObjects(const Cabin& cabin) {
+    const auto& objects = cabin.getObjects();
+    if (!objects.empty()) {
+        std::cout << "Objects in the room:" << std::endl;
+        for (const auto& obj : objects) {
+            std::cout << "- " << obj.getName() << ": " << obj.getDescription() << std::endl;
+        }
+    }
+}
+
 
 void Display::displayCommand() {
     const int boxWidth = 40;
