@@ -71,11 +71,14 @@ void Display::displayCommand() {
     std::cout << std::setfill(' ');
 
     for (const auto& direction : { "N", "S", "W", "E", "U", "D" }) {
-        std::cout << std::setw(boxWidth / 3) << "| " << direction << " : " << getDirectionName(direction) << std::endl;
+        std::cout << std::setw(0) << "| " << direction << " : " << getDirectionName(direction) << std::endl;
     }
-    std::cout << std::setw(boxWidth / 3) << "| " << "C" << " : get command list" << std::endl;
+    std::cout << std::setw(0) << "| " << "C" << " : Get command list" << std::endl;
+    std::cout << "|" << std::endl;
 
-    std::cout << std::setw(boxWidth / 3) << "| " << "use" << " : interact with objets" << std::endl;
+    std::cout << std::setw(0) << "| " << "use" << " : Interact with objets" << std::endl;
+
+    std::cout << std::setw(0) << "| " << "exit" << " : Quit game" << std::endl;
 
     std::cout << std::setw(boxWidth) << std::setfill('-') << "" << std::endl;
     std::cout << std::setfill(' ');
