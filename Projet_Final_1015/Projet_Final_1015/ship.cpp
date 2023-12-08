@@ -1,9 +1,10 @@
-#include "ship.h"
 #include <vector>
+#include "Ship.h"
 
 
 Ship::Ship() {
     createShip();
+    createObjects();
 };
 
 void Ship::createShip() {
@@ -47,9 +48,8 @@ void Ship::createShip() {
 
     // Lien bathroom
     cabinLinks_["bathroom"]["E"] = "galley";
-
-
 }
+
 
 void Ship::addObjectToCabin(const std::string& cabinName, const Object& object) {
     cabinObjects_[cabinName].push_back(object);
@@ -57,14 +57,13 @@ void Ship::addObjectToCabin(const std::string& cabinName, const Object& object) 
 
 void Ship::createObjects() {
     // Example: Add objects to the "deck" cabin
-    addObjectToCabin("deck", Object("Telescope", "A brass telescope for spotting distant ships."));
+    addObjectToCabin("crowsNest", Object("Telescope", "A brass telescope for spotting distant ships."));
     addObjectToCabin("deck", Object("Map", "An old map with mysterious markings."));
 
     // Example: Add objects to the "captainsQuarters" cabin
     addObjectToCabin("captainsQuarters", Object("Captain's Log", "A leather-bound log filled with the captain's notes."));
     // Add more objects as needed
 }
-
 
 
 Cabin& Ship::getCabin(std::string currentCabin) {

@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <iomanip>
 #include <unordered_map>
-#include "display.h"
+#include "Display.h"
 
 
 // formatage string : https://www.asciiart.eu/vehicles/boats// // 
@@ -18,10 +18,10 @@ void Display::showBanner() { // choisir format //
 )" << std::endl;
 }
 
-void Display::showGameState(const Cabin& room) {
+void Display::showGameState(const Cabin& cabin) {
     std::cout << std::endl;
-    std::cout << "[-- " << room.getName() << " --]" << std::endl;
-    std::cout << room.getDescription() << std::endl;
+    std::cout << "[-- " << cabin.getName() << " --]" << std::endl;
+    std::cout << cabin.getDescription() << std::endl;
     std::cout << std::endl;
 }
 
@@ -46,11 +46,12 @@ void Display::displayLinks(const std::unordered_map<std::string, std::string>& l
 }
 
 void Display::displayObjects(const Cabin& cabin) {
+
     const auto& objects = cabin.getObjects();
     if (!objects.empty()) {
         std::cout << "Objects in the room:" << std::endl;
-        for (const auto& obj : objects) {
-            std::cout << "- " << obj.getName() << ": " << obj.getDescription() << std::endl;
+        for (const auto& o : objects) {
+            std::cout << "- " << o.getName() << " : " << o.getDescription() << std::endl;
         }
     }
 }

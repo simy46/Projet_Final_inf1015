@@ -10,7 +10,9 @@ public:
     const std::string& getName() const;
     const std::string& getDescription() const;
     const std::vector<Object>& getObjects() const;
+
     void addObject(const Object& object);
+
     const Object* findObject(const std::string& keyword) const;
 
 private:

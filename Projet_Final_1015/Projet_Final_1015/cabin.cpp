@@ -1,8 +1,8 @@
-#include "cabin.h"
+#include "Cabin.h"
 
-Cabin::Cabin() : name_(""), description_("") {}
+Cabin::Cabin() : name_(""), description_(""), objects_() {}
 
-Cabin::Cabin(const std::string& name, const std::string& description) : name_(name), description_(description) {}
+Cabin::Cabin(const std::string& name, const std::string& description) : name_(name), description_(description), objects_() {}
 
 const std::string& Cabin::getName() const {
     return name_;
