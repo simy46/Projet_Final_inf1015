@@ -6,31 +6,34 @@
 Game::Game() : currentCabin_("deck"), ship_(Ship()) {}
 
 void Game::verifyCommand(const std::string& command) {
-    const Cabin& currentCabin = ship_.getCabin(currentCabin_);
-    const auto& links = ship_.getCabinLinks(currentCabin_);
-
     if (command.size() == 1) {
+        const auto& links = ship_.getCabinLinks(currentCabin_);
         auto it = links.find(command);
         if (it != links.end()) {
             currentCabin_ = it->second;
             std::cout << "Going " << Display::getDirectionName(command) << "..." << std::endl;
-        }
-        else if (command == "C") {
-            Display::displayCommand();
         }
         else {
             std::cout << "Cannot go there." << std::endl;
         }
     }
     else if (command == "look") {
-        std::cout << currentCabin.getName() << std::endl;
-        std::cout << currentCabin.getDescription() << std::endl;
+        std::cout << ship_.getCabin(currentCabin_).getDescription() << std::endl;
+
+        // Display objects in the room
+        Display::displayObjects(ship_.getCabin(currentCabin_));
+    }
+    else if (command == "use") {
+        // Handle using an object
+        std::cout << "What do you want to use? ";
+        std::string objectKeyword;
+        std::cin >> objectKeyword;
+        interactWithObject(ship_.getCabin(currentCabin_), objectKeyword);
     }
     else {
         std::cout << "Command not found." << std::endl;
     }
 }
-
 void Game::startGame() {
     Display::showBanner();
     Display::displayCommand();
