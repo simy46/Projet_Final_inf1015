@@ -13,6 +13,9 @@ void Game::verifyCommand(const std::string& command) {
             currentCabin_ = it->second;
             std::cout << "Going " << Display::getDirectionName(command) << "..." << std::endl;
         }
+        else if (command == "C") {
+            Display::displayCommand();
+        }
         else {
             std::cout << "Cannot go there." << std::endl;
         }
@@ -46,7 +49,7 @@ void Game::startGame() {
     Display::showBanner();
     Display::displayCommand();
 
-    while (!exit_) { // on va changer le while true pour un while (!exit) ou meme while (start) pour livrable 2 //
+    while (!exit_) {
         Display::showGameState(ship_.getCabin(currentCabin_));
 
         const auto& links = ship_.getCabinLinks(currentCabin_);
