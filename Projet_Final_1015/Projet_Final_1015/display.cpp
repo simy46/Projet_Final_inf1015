@@ -6,6 +6,7 @@
 
 // formatage string : https://www.asciiart.eu/vehicles/boats// // 
 void Display::showBanner() { // choisir format //
+    std::cout << "-- INF1015 -- dev: samyfruit, leanader1" << std::endl;
     std::cout << R"(
 
                     v ~.      v
@@ -70,10 +71,11 @@ void Display::displayCommand() {
     std::cout << std::setfill(' ');
 
     for (const auto& direction : { "N", "S", "W", "E", "U", "D" }) {
-        std::cout << std::setw(boxWidth / 2) << "| " << direction << " : " << getDirectionName(direction) << std::endl;
+        std::cout << std::setw(boxWidth / 3) << "| " << direction << " : " << getDirectionName(direction) << std::endl;
     }
-    std::cout << "|" << std::endl;
-    std::cout << std::setw(boxWidth / 2) << "| " << "C" << " : get command list" << " |" << std::endl;
+    std::cout << std::setw(boxWidth / 3) << "| " << "C" << " : get command list" << std::endl;
+
+    std::cout << std::setw(boxWidth / 3) << "| " << "use" << " : interact with objets" << std::endl;
 
     std::cout << std::setw(boxWidth) << std::setfill('-') << "" << std::endl;
     std::cout << std::setfill(' ');
