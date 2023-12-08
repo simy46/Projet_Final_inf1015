@@ -18,7 +18,8 @@ void Game::verifyCommand(const std::string& command) {
         }
     }
     else if (command == "look") {
-        std::cout << ship_.getCabin(currentCabin_).getDescription() << std::endl;
+        std::cout << "You are in " << ship_.getCabin(currentCabin_).getName() << std::endl;
+        std::cout << "The description of this cabin is: " << ship_.getCabin(currentCabin_).getDescription() << std::endl;
 
         // Display objects in the room
         Display::displayObjects(ship_.getCabin(currentCabin_));
