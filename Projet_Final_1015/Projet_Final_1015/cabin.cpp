@@ -22,7 +22,7 @@ void Cabin::addObject(const Object& object) {
 
 const Object* Cabin::findObject(const std::string& keyword) const {
     for (const auto& obj : objects_) {
-        // Check if the keyword is present in the object's name or description
+        
         if (obj.getName().find(keyword) != std::string::npos || obj.getDescription().find(keyword) != std::string::npos) {
             return &obj;
         }
