@@ -11,7 +11,6 @@ void Display::showBanner() {
     std::string cyan = "\033[1;36m";
     std::string yellow = "\033[1;33m";
     std::string magenta = "\033[1;35m";
-    std::string gray = "\033[1;30m";
     std::string white = "\033[0m";
 
     std::cout << "-- INF1015 -- dev: samyfruit, leanader1" << std::endl;
@@ -28,10 +27,6 @@ void Display::showBanner() {
 )") {
         if (c == '~') {
             std::cout << cyan << c;
-        }
-        
-        else if (c == '|' || c == '.') {
-            std::cout << gray << c;
         }
         else if (c == 'v') {
             std::cout << yellow << c;
