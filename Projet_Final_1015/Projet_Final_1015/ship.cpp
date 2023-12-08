@@ -52,6 +52,7 @@ void Ship::createShip() {
 
 void Ship::addObjectToCabin(const std::string& cabinName, const Object& object) {
     cabinObjects_[cabinName].push_back(object);
+    cabins_[cabinName].addObject(object);
 }
 
 void Ship::createObjects() {
