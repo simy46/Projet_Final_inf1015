@@ -3,7 +3,7 @@
 #include "Display.h"
 
 
-Game::Game() : currentCabin_("deck"), ship_(Ship()) {}
+Game::Game() : currentCabin_("deck"), ship_(Ship()), exit_(false) {}
 
 void Game::verifyCommand(const std::string& command) {
     if (command.size() == 1) {
@@ -30,6 +30,13 @@ void Game::verifyCommand(const std::string& command) {
         std::cin >> objectKeyword;
         interactWithObject(ship_.getCabin(currentCabin_), objectKeyword);
     }
+    else if (command == "exit") {
+        std::cout << "Going to deliver Binks Sake!\n";
+        std::cout << "Lets all sing it with a Don! A song of the waves\n";
+        std::cout << "Doesnt matter who you are, Someday youll just be bones\n";
+        std::cout << "Never - Ending, Ever - wandering, Our funny Traveling tale!\n";
+        exit_ = true;
+    }
     else {
         std::cout << "Command not found." << std::endl;
     }
@@ -38,7 +45,7 @@ void Game::startGame() {
     Display::showBanner();
     Display::displayCommand();
 
-    while (true) { // on va changer le while true pour un while (!exit) ou meme while (start) pour livrable 2 //
+    while (!exit_) { // on va changer le while true pour un while (!exit) ou meme while (start) pour livrable 2 //
         Display::showGameState(ship_.getCabin(currentCabin_));
 
         const auto& links = ship_.getCabinLinks(currentCabin_);
