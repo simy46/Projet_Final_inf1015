@@ -50,9 +50,9 @@ void Display::displayObjects(const Cabin& cabin) {
     const auto& objects = cabin.getObjects();
     if (!objects.empty()) {
         std::cout << std::endl;
-        std::cout << "Objects in the room :" << std::endl;
+        std::cout << "Objects in the room" << std::endl;
         for (const auto& o : objects) {
-            std::cout << "- " << o.getName() << " : " << o.getDescription() << std::endl;
+            std::cout << "-> " << o.getName() << " : " << o.getDescription() << std::endl;
         }
     }
 }
