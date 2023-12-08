@@ -49,7 +49,7 @@ void Display::displayObjects(const Cabin& cabin) {
 
     const auto& objects = cabin.getObjects();
     if (!objects.empty()) {
-        std::cout << "Objects in the room:" << std::endl;
+        std::cout << "Objects in the room :" << std::endl;
         for (const auto& o : objects) {
             std::cout << "- " << o.getName() << " : " << o.getDescription() << std::endl;
         }
@@ -58,21 +58,21 @@ void Display::displayObjects(const Cabin& cabin) {
 
 
 void Display::displayCommand() {
-    const int boxWidth = 40;
+    const int boxWidth = 43;
 
     std::cout << std::setw(boxWidth) << std::setfill('-') << "" << std::endl;
     std::cout << std::setfill(' ');
 
-    std::cout << std::setw(boxWidth) << std::left << "These are the commands that you can use" << std::endl;
+    std::cout << std::setw(boxWidth) << std::left << "| These are the commands that you can use |" << std::endl;
 
     std::cout << std::setw(boxWidth) << std::setfill('-') << "" << std::endl;
     std::cout << std::setfill(' ');
 
     for (const auto& direction : { "N", "S", "W", "E", "U", "D" }) {
-        std::cout << std::setw(boxWidth / 2) << direction << " : " << getDirectionName(direction) << std::endl;
+        std::cout << std::setw(boxWidth / 2) << "| " << direction << " : " << getDirectionName(direction) << std::endl;
     }
-    std::cout << std::endl;
-    std::cout << std::setw(boxWidth / 2) << "C" << " : get command list" << std::endl;
+    std::cout << "|" << std::endl;
+    std::cout << std::setw(boxWidth / 2) << "| " << "C" << " : get command list" << " |" << std::endl;
 
     std::cout << std::setw(boxWidth) << std::setfill('-') << "" << std::endl;
     std::cout << std::setfill(' ');

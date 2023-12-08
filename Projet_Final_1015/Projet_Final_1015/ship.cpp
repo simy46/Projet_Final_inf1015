@@ -45,7 +45,6 @@ void Ship::createShip() {
     // Lien game room
     cabinLinks_["gameCabin"]["W"] = "galley";
 
-
     // Lien bathroom
     cabinLinks_["bathroom"]["E"] = "galley";
 }
